@@ -1,0 +1,14 @@
+{
+  "registrationRequest": {
+    "contactType": "mobile",
+    "countryCode": "+91",
+    "mobile": "7418529636",
+    "password": "nadeem",
+    "acceptDataPolicy": true,
+    "receiveNews": true,
+    "acceptPIC": true,
+    "locale": "en",
+    "captchaToken": "dhggssdfdfdffsdhhghgh",
+    "receiveClaimSettle": true
+  }
+}

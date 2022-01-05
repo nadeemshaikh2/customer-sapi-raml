@@ -1,0 +1,12 @@
+http:
+ listener:
+    host: "0.0.0.0"
+    port: "8081"
+ requestor:
+     host: "localhost"
+     port: "8081"
+
+sfdc:
+  username: "nadeemshaikh4775@concentrix.com"
+  password: "Nightfury@741852"
+  securityToken: "TK3r7fbgR585IgyFuSbb2kyrK"
