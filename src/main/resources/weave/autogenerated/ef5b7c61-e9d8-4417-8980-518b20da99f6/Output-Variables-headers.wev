@@ -1,0 +1,8 @@
+%dw 2.0
+
+type auto_ef5b7c61_e9d8_4417_8980_518b20da99f6_Output_Variables_headers = {|
+  "x-cms-transactionId": String, 
+  clientId: String, 
+  clientSecret: String
+|} | String
+
