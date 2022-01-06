@@ -5,16 +5,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<sub-flow name="error-response-subFlow" doc:id="52f4605f-7afe-4e62-bef0-b669e5fc025d" >
-		<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd" doc:name="Transform Message for error Request">
+		<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd" doc:name="Transform Message for error Request" doc:id="e5aa7138-f273-471b-a1ea-f5b7f935bc7e">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
 ---
 {
-  "msg ": "successful operation",
+  "msg": "successful operation",
   "code": vars.code,
   "success": true,
-  "eventId":  attributes.headers.'x-cms-transactionId',
+  "eventId": attributes.headers.'x-cms-transactionId',
   "error": {
     "type": vars.'type',
     "title": vars.title,
@@ -23,7 +23,6 @@ output application/json
 }]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
-                        <ee:set-variable variableName="httpStatus"><![CDATA[415]]></ee:set-variable>
                     </ee:variables>
                 </ee:transform>
 	</sub-flow>

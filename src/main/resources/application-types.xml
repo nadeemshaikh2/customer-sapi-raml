@@ -228,4 +228,5 @@ type: number]]></types:shape>
     </types:processor-declaration>
   </types:enrichment>
   <types:enrichment select="#5a3dc88e-0fca-40ab-9b43-8ea7670b913f"/>
+  <types:enrichment select="#e5aa7138-f273-471b-a1ea-f5b7f935bc7e"/>
 </types:mule>

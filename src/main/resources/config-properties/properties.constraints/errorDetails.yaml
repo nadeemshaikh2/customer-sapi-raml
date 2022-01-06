@@ -4,4 +4,11 @@ error:
     type: "BAD REQUEST"
     title: "Invalid Request"
     details: "The input contains Invalid data, amount should be integer"
+  resource_not_found:
+    code: "404"
+    type: "NOT_FOUND"
+    title: "Resource not found"
+    details: "The URI requested is invalid or the resource does not exists"
+    
+    
     
