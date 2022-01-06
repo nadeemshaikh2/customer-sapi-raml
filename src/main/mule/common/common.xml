@@ -4,12 +4,35 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<sub-flow name="error-response-subFlow" doc:id="52f4605f-7afe-4e62-bef0-b669e5fc025d" >
+		<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd" doc:name="Transform Message for error Request">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  "msg ": "successful operation",
+  "code": vars.code,
+  "success": true,
+  "eventId":  attributes.headers.'x-cms-transactionId',
+  "error": {
+    "type": vars.'type',
+    "title": vars.title,
+    "details": vars.details
+  }
+}]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus"><![CDATA[415]]></ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+	</sub-flow>
 	<sub-flow name="initialize_request_data_SubFlow" doc:id="ef5b7c61-e9d8-4417-8980-518b20da99f6" >
 		<ee:transform doc:name="Transform Message" doc:id="4c06396d-e51f-4dc8-a4eb-54d456212e1e">
 			<ee:message>
 			</ee:message>
 			<ee:variables>
-				<ee:set-variable variableName="headers"><![CDATA[attributes.headers default""]]></ee:set-variable>
+				<ee:set-variable variableName="headers"><![CDATA[attributes.headers default ""]]></ee:set-variable>
 				<ee:set-variable variableName="queryParams"><![CDATA[attributes.queryparams default""]]></ee:set-variable>
 				<ee:set-variable variableName="uriParams"><![CDATA[attributes.uriParams default""]]></ee:set-variable>
 				<ee:set-variable variableName="requestPayload"><![CDATA[payload default""]]></ee:set-variable>

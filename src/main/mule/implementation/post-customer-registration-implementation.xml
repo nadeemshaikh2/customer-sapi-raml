@@ -16,7 +16,6 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 output application/json
 ---
 [{
-  
     "contactType__c": payload.registrationRequest.contactType,
     "countryCode__c": payload.registrationRequest.countryCode,
     "mobile__c": payload.registrationRequest.mobile,
@@ -26,8 +25,7 @@ output application/json
     "acceptPIC__c": if(payload.registrationRequest.acceptPIC == true)("true")else("false"),
     "locale__c": payload.registrationRequest.locale,
     "captchaToken__c": payload.registrationRequest.captchaToken,
-    "receiveClaimSettle__c":if(payload.registrationRequest.receiveClaimSettle == true)("true")else("false")	
- 
+    "receiveClaimSettle__c": if(payload.registrationRequest.receiveClaimSettle == true)("true")else("false")	 
 }]]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
