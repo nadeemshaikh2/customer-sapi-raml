@@ -4,13 +4,14 @@ description: This Api is used by PAPI to connect with SFDC
 version: 1.0.0
 
 traits:
-  common-header : !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/traits/headers-common-trait.raml
+  common-header : !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/traits/headers-common-trait.raml
   
 types:
-  error-dataType: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/dataTypes/error-dataType.raml
-  post-registration-request : !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/dataTypes/post-registration-request-dataType.raml
-  post-registration-response: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/dataTypes/post-registration-response-dataType.raml
-
+  error-dataType: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/dataTypes/error-dataType.raml
+  post-registration-request : !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/dataTypes/post-registration-request-dataType.raml
+  post-registration-response: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/dataTypes/post-registration-response-dataType.raml
+  post-customerState-request : !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/dataTypes/post-customerState-request-dataType.raml
+  post-customerState-response: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/dataTypes/post-customerState-response-dataType.raml
 /customers:
   /registration:
     post:
@@ -27,31 +28,69 @@ types:
             application/json:
               type: post-registration-response
               example: !include /examples/post-registration-response-example.raml
-                   
         400:
           body:
             application/json:
               type: error-dataType
-              example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/examples/error-400-response-example.json
+              example: !include exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-400-response-example.json
                    
         401:
           body:
             application/json:
               type: error-dataType
-              example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/examples/error-401-response-example.json
+              example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-401-response-example.json
                 
         404:
           body:
             application/json:
               type: error-dataType
-              example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/examples/error-404-response-example.json
+              example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-404-response-example.json
               
         500:
             body:
               application/json:
                 type: error-dataType
-                example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.0/examples/error-500-response-example.json
-                      
+                example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-500-response-example.json
+
+/customerState:
+  post:
+    is:
+      - common-header
+    body:
+      application/json:
+        type: post-customerState-request
+        example: !include /examples/post-customerState-request-example.json
+          
+    responses:
+      201:
+        body:
+          application/json:
+            type: post-customerState-response
+            example: !include /examples/post-customerState-response-example.raml
+                  
+      400:
+        body:
+          application/json:
+            type: error-dataType
+            example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-400-response-example.json
+                  
+      401:
+        body:
+          application/json:
+            type: error-dataType
+            example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-401-response-example.json
+              
+      404:
+        body:
+          application/json:
+            type: error-dataType
+            example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-404-response-example.json
+            
+      500:
+          body:
+            application/json:
+              type: error-dataType
+              example: !include /exchange_modules/b9b13342-403d-4a9e-bd70-19cd03ed7452/common-fragment/1.0.3/examples/error-500-response-example.json
        
           
                         

@@ -9,7 +9,7 @@
 	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<flow name="post-customer-registration-implementationFlow" doc:id="0cdd1260-4a08-491f-9a93-66c67f910aa7" >
+	<flow name="post-customer-registration-implementation-Flow" doc:id="0cdd1260-4a08-491f-9a93-66c67f910aa7" >
 		<ee:transform doc:name="Transform Message to Create SFDC Request Payload for Registration Object" doc:id="5e540648-23fd-4f25-b61a-fc72cb3ee61b" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0

@@ -1,0 +1,20 @@
+%dw 2.0
+
+type auto_0cdd1260_4a08_491f_9a93_66c67f910aa7_Output_Variables_requestPayload = {
+  registrationRequest: {
+    password: String, 
+    acceptDataPolicy: Boolean, 
+    receiveClaimSettle: Boolean, 
+    countryCode?: "+91" | "+1", 
+    acceptPIC: Boolean, 
+    mobile?: String, 
+    contactType: "mobile" | "email", 
+    receiveNews: Boolean, 
+    captchaToken: String, 
+    locale: "en" | "zh", 
+    email?: String, 
+    _?: Any
+  }, 
+  _?: Any
+} | String
+
